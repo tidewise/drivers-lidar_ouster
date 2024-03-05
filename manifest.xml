@@ -1,5 +1,5 @@
 <package>
-  <description brief="Library used to communicate with os2 ouster lidar">
+  <description brief="Library for os2 Ouster lidar">
   
   </description>
   <author>Rayssa Soares de Oliveira/rayssa.soares@tidewise.io</author>
@@ -7,11 +7,8 @@
   <url>http://</url>
   <logo>http://</logo>
   <depend package="base/cmake" />
-  <!--
-   To add any dependencies use the depend tag
-  <depend package="dummy-dependency-0" />
-	...
-  <depend package="dummy-dependency-n-1" />
-  <depend package="dummy-dependency-n" />
-  -->
+  <depend package="base/orogen/types" />
+  <depend package="drivers/lidar_ouster_sdk" />
+
+  <test_depend package="google-test" />
 </package>
