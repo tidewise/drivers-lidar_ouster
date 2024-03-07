@@ -9,7 +9,7 @@ void usage(ostream& stream)
 {
     stream << "Version: " << ouster::SDK_VERSION_FULL << " (" << ouster::BUILD_SYSTEM
            << ")"
-           << "\n\nUsage: lidar_ouster <sensor_hostname> IP CMD where:\n"
+           << "\n\nUsage: lidar_ouster <sensor_hostname> CMD where:\n"
            << "    CMD is one of the commands bellow:\n"
            << "\n"
            << "Available operating modes:\n"
@@ -27,8 +27,7 @@ int main(int argc, char* argv[])
     }
 
     const string sensor_hostname = argv[1];
-    const string ip = argv[2];
-    const string mode = argv[3];
+    const string mode = argv[2];
 
     // Get the current config on the sensor
     ouster::sensor::sensor_config original_config;

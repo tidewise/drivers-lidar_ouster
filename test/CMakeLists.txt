@@ -1,2 +1,1 @@
-rock_testsuite(test_suite suite.cpp
-   DEPS lidar_ouster)
+rock_testsuite(test_suite suite.cpp)
