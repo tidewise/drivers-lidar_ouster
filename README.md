@@ -1,6 +1,6 @@
 lidar_ouster
 =============
-Library used to communicate with os2 ouster lidar
+Library for communicating with Ouster OS2 LiDAR
 
 
 

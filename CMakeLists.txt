@@ -3,7 +3,7 @@
 cmake_minimum_required(VERSION 3.9)
 project(lidar_ouster
         VERSION 0.1
-        DESCRIPTION "Library for with os2 Ouster lidar")
+        DESCRIPTION "Library for communicating with Ouster OS2 LiDAR")
 find_package(Rock)
 
 set(CMAKE_CXX_STANDARD 11)

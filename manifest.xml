@@ -1,5 +1,5 @@
 <package>
-  <description brief="Library for os2 Ouster lidar">
+  <description brief="Library for communicating with Ouster OS2 LiDAR">
   
   </description>
   <author>Rayssa Soares de Oliveira/rayssa.soares@tidewise.io</author>
