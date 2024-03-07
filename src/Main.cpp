@@ -9,11 +9,11 @@ void usage(ostream& stream)
 {
     stream << "Version: " << ouster::SDK_VERSION_FULL << " (" << ouster::BUILD_SYSTEM
            << ")"
-           << "\n\nUsage: lidar_ouster <sensor_hostname> CMD where:\n"
-           << "    CMD is one of the commands bellow:\n"
+           << "\n\nUsage: lidar_ouster_bin <sensor_hostname> <CMD>\n"
+           << "    where:\n    CMD is one of the commands bellow:\n"
            << "\n"
            << "Available operating modes:\n"
-           << "standby: sets the operational mode to STANDBY"
+           << "standby: sets the operational mode to STANDBY\n"
            << "normal: sets the operational mode to NORMAL SENSOR OPERATION.\n"
            << endl;
 }
@@ -35,7 +35,7 @@ int main(int argc, char* argv[])
         cerr << "..error: could not connect to sensor!" << endl;
         return EXIT_FAILURE;
     }
-    cerr << "success! Got original config\nOriginal config of sensor:\n"
+    cout << "success! Got original config\nOriginal config of sensor:\n"
          << to_string(original_config) << endl;
 
     ouster::sensor::sensor_config config;
@@ -46,18 +46,26 @@ int main(int argc, char* argv[])
         config.operating_mode = ouster::sensor::OperatingMode::OPERATING_NORMAL;
     }
     else {
-        cerr << mode << "is not a valid operating mode." << endl;
+        cerr << mode << " is not a valid operating mode." << endl;
         return EXIT_FAILURE;
     }
 
     // Configure sensor
-    if (!ouster::sensor::get_config(sensor_hostname, config)) {
+    if (!ouster::sensor::set_config(sensor_hostname, config)) {
         cerr << "..error: could not connect to sensor" << endl;
         return EXIT_FAILURE;
     }
     else {
-        cerr << "Updated configuration: \n" << to_string(config) << endl;
+        cout << "Updated configuration: \n" << to_string(config) << endl;
     }
+
+    // Get updated configuration
+    if (!ouster::sensor::get_config(sensor_hostname, config)) {
+        cerr << "..error: could not connect to sensor!" << endl;
+        return EXIT_FAILURE;
+    }
+    cout << "success! Got updated config\nUpdated config of sensor:\n"
+         << to_string(config) << endl;
 
     return EXIT_SUCCESS;
 }
