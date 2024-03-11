@@ -1,7 +1,8 @@
 rock_library(lidar_ouster
-    SOURCES Dummy.cpp
-    HEADERS Dummy.hpp)
+    SOURCES
+    HEADERS
+    DEPS_PKGCONFIG base-types lidar_ouster_sdk)
 
 rock_executable(lidar_ouster_bin Main.cpp
-    DEPS lidar_ouster)
+    DEPS_PKGCONFIG lidar_ouster_sdk)
 
